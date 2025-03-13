@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="YADSMan"
+run/main_scene="uid://bfv8x7a7sbqfm"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/aspect="expand"
 
 [rendering]
 

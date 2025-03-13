@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfv8x7a7sbqfm"]
+
+[ext_resource type="Script" uid="uid://c4aeecylam014" path="res://Scenes/Prototype/prototype.gd" id="1_qo0un"]
+
+[node name="Prototype" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qo0un")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = 64.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeakerEdit" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="SpeakerLabel" type="Label" parent="VBoxContainer/SpeakerEdit"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Speaker:"
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="SpeakerEdit" type="LineEdit" parent="VBoxContainer/SpeakerEdit"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Dialogue" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="DialogueLabel" type="Label" parent="VBoxContainer/Dialogue"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Dialogue:"
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="DialogueEdit" type="LineEdit" parent="VBoxContainer/Dialogue"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SaveLoadButtons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveLoadButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="SaveLoadButtons/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "SAVE"
+
+[node name="LoadButton" type="Button" parent="SaveLoadButtons/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "LOAD"
+
+[connection signal="pressed" from="SaveLoadButtons/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="SaveLoadButtons/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
