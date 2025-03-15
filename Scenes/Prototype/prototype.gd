@@ -66,17 +66,18 @@ func _on_save_button_pressed() -> void:
 		
 		FileManager.save_line_to_file(_current_index, _current_speaker, _current_dialogue)
 
-# wasn't paying attention and put the save code under the load button like a wittwe doofus :3c
-#func _on_load_button_pressed() -> void:
-	#print("SAVING ALL LINES TO FILE")
-	#var _line_edits: Array[Node] = get_tree().get_nodes_in_group("line_editor")
-	#
-	#for line_edit in _line_edits:
-	#	var _current_index: int = _line_edits[line_edit.get_index()].get_current_index()
-	#	var _current_speaker: String = _line_edits[line_edit.get_index()].get_speaker_text()
-	#	var _current_dialogue: String = _line_edits[line_edit.get_index()].get_dialogue_text()
-	#	
-	#	FileManager.save_line_to_file(_current_index, _current_speaker, _current_dialogue)
+func _on_load_button_pressed() -> void:
+	var _speaker_lines: Array[String] = FileManager.load_speaker_lines_from_file()
+	var _dialogue_lines: Array[String] = FileManager.load_dialogue_lines_from_file()
+	
+	# potential bug ahead! this all depends on the speaker and dialogue line array being the same size
+	# they *should* be, but for now ill just throw a fit if the sizes are different
+	
+	if _speaker_lines.size() == _dialogue_lines.size():
+		for _current_line in range(_speaker_lines.size()):
+			GlobalManager.create_line_editor_item(GlobalManager.current_total_indexes, _speaker_lines[_current_line], _dialogue_lines[_current_line])
+	else:
+		printerr("FUCK ME TO TEARS! SPEAKER AND DIALOGUE ARRAY SIZES AREN'T EQUAL!")
 
 func _on_new_index_pressed() -> void:
 	GlobalManager.create_line_editor_item(GlobalManager.current_total_indexes)

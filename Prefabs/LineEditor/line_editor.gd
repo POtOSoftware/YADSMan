@@ -11,6 +11,17 @@ func initialize_index(_index: int):
 	current_index_label.text = "Index: " + str(current_index)
 	print("INITIALIZED LINE EDITOR WITH INDEX " + str(current_index))
 
+func initialize_text(_speaker_text: String = "", _dialogue_text: String = ""):
+	var _index_string: String = str(get_current_index())
+	
+	# we only really need to initialize them if the arguments were actually filled in and used
+	if _speaker_text != "":
+		print("INITIALIZING INDEX " + _index_string + " WITH SPEAKER TEXT: " + _speaker_text)
+		speaker_edit.text = _speaker_text
+	if _dialogue_text != "":
+		print("INITIALIZING INDEX " + _index_string + " WITH DIALOGUE TEXT: " + _dialogue_text)
+		dialogue_edit.text = _dialogue_text
+
 func get_current_index() -> int:
 	return current_index
 
