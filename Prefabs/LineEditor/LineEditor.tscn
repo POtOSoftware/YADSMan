@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://haosvlinuilg"]
+
+[ext_resource type="Script" uid="uid://dte72qvhnl8xr" path="res://Prefabs/LineEditor/line_editor.gd" id="1_hfxg0"]
+
+[node name="LineEditor" type="Control" groups=["line_editor"]]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 160.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_hfxg0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.423651, 0.423651, 0.423651, 1)
+
+[node name="IndexLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Index: X"
+
+[node name="SpeakerEdit" type="Control" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 32.0
+offset_bottom = 92.0
+grow_horizontal = 2
+metadata/_edit_group_ = true
+
+[node name="SpeakerLabel" type="Label" parent="ColorRect/SpeakerEdit"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Speaker:"
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="SpeakerEdit" type="LineEdit" parent="ColorRect/SpeakerEdit"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Dialogue" type="Control" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="DialogueLabel" type="Label" parent="ColorRect/Dialogue"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Dialogue:"
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="DialogueEdit" type="LineEdit" parent="ColorRect/Dialogue"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
