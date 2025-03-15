@@ -3,13 +3,16 @@ extends Control
 @onready var speaker_line_edit: Node = $VBoxContainer/SpeakerEdit/SpeakerEdit
 @onready var dialogue_line_edit: Node = $VBoxContainer/Dialogue/DialogueEdit
 @onready var dialogue_index_container: Node = $ScrollContainer/VBoxContainer
+@onready var variable_container: Node = $VarContainer/VBoxContainer
 
 func _ready() -> void:
 	# give the global manager script the scenes vbox container so it can add children to it
 	GlobalManager.line_editor_container = self.dialogue_index_container
+	GlobalManager.variable_container = self.variable_container
 
 func _exit_tree() -> void:
 	GlobalManager.line_editor_container = null
+	GlobalManager.variable_container = null
 
 #func save_to_yads_file(_current_index: int = 0) -> void:
 #	print("ATTEMPTING TO SAVE YADS FILE AT INDEX " + str(_current_index))
@@ -56,8 +59,12 @@ func _exit_tree() -> void:
 #	dialogue_line_edit.text = _input_line
 
 func _on_save_button_pressed() -> void:
-	print("SAVING ALL LINES TO FILE")
+	print("SAVING ALL LINES AND VARIABLES TO FILE")
 	var _line_edits: Array[Node] = get_tree().get_nodes_in_group("line_editor")
+	var _variables: Array[Node] = get_tree().get_nodes_in_group("var_editor")
+	
+	var _var_names: Array[String]
+	var _var_values: Array[String]
 	
 	for line_edit in _line_edits:
 		var _current_index: int = _line_edits[line_edit.get_index()].get_current_index()
@@ -66,6 +73,12 @@ func _on_save_button_pressed() -> void:
 		var _current_specfunc: String = _line_edits[line_edit.get_index()].get_specfunc()
 		
 		FileManager.save_line_to_file(_current_index, _current_speaker, _current_dialogue, _current_specfunc)
+	
+	for vars in range(_variables.size()):
+		_var_names.append(_variables[vars].get_variable_name())
+		_var_values.append(_variables[vars].get_variable_value())
+	
+	FileManager.save_vars_to_file(_var_names, _var_values)
 
 func _on_load_button_pressed() -> void:
 	var _speaker_lines: Array[String] = FileManager.load_speaker_lines_from_file()
@@ -84,3 +97,6 @@ func _on_load_button_pressed() -> void:
 
 func _on_new_index_pressed() -> void:
 	GlobalManager.create_line_editor_item(GlobalManager.current_total_indexes)
+
+func _on_new_var_pressed() -> void:
+	GlobalManager.create_var_edit_item()

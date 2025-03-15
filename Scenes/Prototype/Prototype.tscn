@@ -16,13 +16,38 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 256.0
+offset_left = 64.0
 offset_top = 64.0
-offset_right = -256.0
+offset_right = -448.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VarsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 72.0
+offset_right = 908.0
+offset_bottom = 95.0
+text = "Variables:"
+
+[node name="VarContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 832.0
+offset_top = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VarContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -70,6 +95,12 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "NEW INDEX"
 
+[node name="NewVar" type="Button" parent="TopBarButtons/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "NEW VAR"
+
 [connection signal="pressed" from="TopBarButtons/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="TopBarButtons/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="TopBarButtons/HBoxContainer2/NewIndex" to="." method="_on_new_index_pressed"]
+[connection signal="pressed" from="TopBarButtons/HBoxContainer2/NewVar" to="." method="_on_new_var_pressed"]

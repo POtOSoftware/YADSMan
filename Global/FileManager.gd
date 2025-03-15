@@ -15,6 +15,17 @@ func save_line_to_file(_index_int: int, _speaker_text: String, _dialogue_text: S
 	else:
 		printerr("FUCK ME! SAVING LINES FROM INDEX " + index_string + " HAS FAILED!")
 
+func save_vars_to_file(_var_names: Array, _var_values: Array):
+	print("SAVING VARS TO FILE")
+	
+	yads_file.set_value("variables", "var_names", _var_names)
+	yads_file.set_value("variables", "var_values", _var_values)
+	
+	if yads_file.save(GlobalManager.working_file_path) == OK:
+		print("SUCCESSFULLY SAVED VARIABLES")
+	else:
+		printerr("AW SHUCKS! SAVING VARIABLES HAS FAILED!")
+
 func load_speaker_lines_from_file(_file_path: String = GlobalManager.working_file_path) -> Array[String]:
 	#var _file_path: String = GlobalManager.working_file_path
 	var speaker_lines: Array[String]

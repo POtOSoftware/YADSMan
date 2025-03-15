@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://yv38ninidiqi"]
+
+[ext_resource type="Script" uid="uid://o2ivxoa7q4nl" path="res://Prefabs/VarEditor/var_editor.gd" id="1_h1l6o"]
+
+[node name="VarEditor" type="Control" groups=["var_editor"]]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 3
+anchor_right = 0.986
+anchor_bottom = 0.123
+offset_right = 16.1279
+offset_bottom = 0.295998
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1l6o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.294118)
+
+[node name="VarNameEdit" type="LineEdit" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+placeholder_text = "Variable Name"
+
+[node name="VarValueEdit" type="LineEdit" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Variable Value"
