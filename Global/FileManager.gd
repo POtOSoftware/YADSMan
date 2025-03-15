@@ -14,8 +14,8 @@ func save_line_to_file(_index_int: int, _speaker_text: String, _dialogue_text: S
 	else:
 		printerr("FUCK ME! SAVING LINES FROM INDEX " + index_string + " HAS FAILED!")
 
-func load_speaker_lines_from_file() -> Array[String]:
-	var _file_path: String = GlobalManager.working_file_path
+func load_speaker_lines_from_file(_file_path: String = GlobalManager.working_file_path) -> Array[String]:
+	#var _file_path: String = GlobalManager.working_file_path
 	var speaker_lines: Array[String]
 	
 	if yads_file.load(_file_path) == OK:
@@ -30,8 +30,8 @@ func load_speaker_lines_from_file() -> Array[String]:
 	
 	return speaker_lines
 
-func load_dialogue_lines_from_file() -> Array[String]:
-	var _file_path: String = GlobalManager.working_file_path
+func load_dialogue_lines_from_file(_file_path: String = GlobalManager.working_file_path) -> Array[String]:
+	#var _file_path: String = GlobalManager.working_file_path
 	var dialogue_lines: Array[String]
 	
 	if yads_file.load(_file_path) == OK:
