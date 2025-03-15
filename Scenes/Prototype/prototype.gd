@@ -63,8 +63,8 @@ func _on_save_button_pressed() -> void:
 	var _line_edits: Array[Node] = get_tree().get_nodes_in_group("line_editor")
 	var _variables: Array[Node] = get_tree().get_nodes_in_group("var_editor")
 	
-	var _var_names: Array[String]
-	var _var_values: Array[String]
+	var _var_names: Array
+	var _var_values: Array
 	
 	for line_edit in _line_edits:
 		var _current_index: int = _line_edits[line_edit.get_index()].get_current_index()
@@ -85,6 +85,9 @@ func _on_load_button_pressed() -> void:
 	var _dialogue_lines: Array[String] = FileManager.load_dialogue_lines_from_file()
 	var _specfunc_lines: Array[String] = FileManager.load_specfuncs_from_file()
 	
+	var _var_names: Array = FileManager.load_var_names_from_file()
+	var _var_values: Array = FileManager.load_var_values_from_file()
+	
 	# potential bug ahead! this all depends on the speaker and dialogue line array being the same size
 	# they *should* be, but for now ill just throw a fit if the sizes are different
 	
@@ -94,6 +97,13 @@ func _on_load_button_pressed() -> void:
 			_speaker_lines[_current_line], _dialogue_lines[_current_line], _specfunc_lines[_current_line])
 	else:
 		printerr("FUCK ME TO TEARS! SPEAKER AND DIALOGUE ARRAY SIZES AREN'T EQUAL!")
+		return
+	
+	print(_var_names)
+	print(_var_values)
+	if _var_names != [null]:
+		for _current_var in range(_var_names.size()):
+			GlobalManager.create_var_edit_item(_var_names[_current_var], _var_values[_current_var])
 
 func _on_new_index_pressed() -> void:
 	GlobalManager.create_line_editor_item(GlobalManager.current_total_indexes)

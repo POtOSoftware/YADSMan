@@ -20,6 +20,7 @@ func create_line_editor_item(_index: int, _speaker_text: String = "", _dialogue_
 	current_total_indexes += 1
 
 func create_var_edit_item(_var_name: String = "", _var_value: String = ""):
+	print("CREATING VARIABLE EDITOR")
 	var instance_var_editor: Node = prefab_var_editor.instantiate()
 	
 	variable_container.add_child(instance_var_editor)

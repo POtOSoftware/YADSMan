@@ -72,3 +72,27 @@ func load_specfuncs_from_file(_file_path: String = GlobalManager.working_file_pa
 	print("SPECIAL FUNCTIONS: " + str(specfunc_lines))
 	
 	return specfunc_lines
+
+func load_var_names_from_file(_file_path: String = GlobalManager.working_file_path) -> Array:
+	var var_names: Array
+	
+	if yads_file.load(_file_path) == OK:
+		print("LOADING VARIABLE NAMES FROM " + _file_path)
+	else:
+		printerr("DOLPHIN DICKS! LOADING VARIALBE NAMES FROM " + _file_path + " HAS FAILED!")
+	
+	var_names = yads_file.get_value("variables", "var_names")
+	
+	return var_names
+
+func load_var_values_from_file(_file_path: String = GlobalManager.working_file_path) -> Array:
+	var var_values: Array
+	
+	if yads_file.load(_file_path) == OK:
+		print("LOADING VARIABLE VALUES FROM " + _file_path)
+	else:
+		printerr("BISCUITS! LOADING VARIABLE VALUES FROM " + _file_path + " HAS FAILED!")
+	
+	var_values = yads_file.get_value("variables", "var_values")
+	
+	return var_values
