@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dte72qvhnl8xr" path="res://Prefabs/LineEditor/line_editor.gd" id="1_hfxg0"]
 
 [node name="LineEditor" type="Control" groups=["line_editor"]]
-custom_minimum_size = Vector2(0, 160)
+custom_minimum_size = Vector2(0, 256)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 160.0
+offset_bottom = 256.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 script = ExtResource("1_hfxg0")
@@ -62,14 +62,14 @@ grow_vertical = 0
 [node name="Dialogue" type="Control" parent="ColorRect"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -61.0
-offset_bottom = -1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 44.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 metadata/_edit_group_ = true
 
 [node name="DialogueLabel" type="Label" parent="ColorRect/Dialogue"]
@@ -83,6 +83,39 @@ vertical_alignment = 1
 justification_flags = 162
 
 [node name="DialogueEdit" type="LineEdit" parent="ColorRect/Dialogue"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SpecialFunction" type="Control" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="SpecFuncLabel" type="Label" parent="ColorRect/SpecialFunction"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Special Function:"
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="SpecFuncEdit" type="LineEdit" parent="ColorRect/SpecialFunction"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

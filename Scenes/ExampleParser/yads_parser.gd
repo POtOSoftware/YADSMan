@@ -3,8 +3,8 @@ extends Control
 @onready var root: Node = $".."
 
 # just like unity! ...ewnity 3:
-@export var speaker_label: Node
-@export var dialogue_label: Node
+@export_node_path("Label") var speaker_label
+@export_node_path("Label") var dialogue_label
 
 var current_dialogue_index: int = 0
 

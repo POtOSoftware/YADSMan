@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jjraq")
 
-[node name="YADSParser" type="Control" parent="." node_paths=PackedStringArray("speaker_label", "dialogue_label")]
+[node name="YADSParser" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

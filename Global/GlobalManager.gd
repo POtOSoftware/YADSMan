@@ -8,11 +8,11 @@ var prefab_line_editor: PackedScene = preload("res://Prefabs/LineEditor/LineEdit
 
 var line_editor_container: Node = null
 
-func create_line_editor_item(_index: int, _speaker_text: String = "", _dialogue_text: String = "") -> void:
+func create_line_editor_item(_index: int, _speaker_text: String = "", _dialogue_text: String = "", _specfunc_text: String = "") -> void:
 	var instance_line_editor: Node = prefab_line_editor.instantiate()
 	
 	line_editor_container.add_child(instance_line_editor)
 	instance_line_editor.initialize_index(_index)
-	instance_line_editor.initialize_text(_speaker_text, _dialogue_text)
+	instance_line_editor.initialize_text(_speaker_text, _dialogue_text, _specfunc_text)
 	
 	current_total_indexes += 1
